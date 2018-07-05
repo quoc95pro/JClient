@@ -9,6 +9,7 @@ import { IndexComponent } from './index/index.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { PricingComponent } from './pricing/pricing.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 import { routing } from "./app.routing";
 
@@ -25,7 +26,8 @@ import { routing } from "./app.routing";
   ],
   imports: [
     BrowserModule,
-    routing
+    routing,
+    InfiniteScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]

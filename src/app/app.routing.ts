@@ -14,10 +14,11 @@ const appRoutes : Routes = [
             {path : '', component : IndexComponent, pathMatch : 'full'},
             {path : 'about', component : AboutComponent},
             {path : 'contact', component : ContactComponent},
-            {path : 'pricing', component : PricingComponent}
+            {path : 'pricing', component : PricingComponent},
+            {path : '**', redirectTo : ''}
         ]
-    },
-    {path : '**', redirectTo : ''}
+    }
+    
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);
