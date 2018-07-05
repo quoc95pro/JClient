@@ -7,11 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  array = [];
+  array1 = [];
+  array2 = [];
+  array3 = [];
+  array4 = [];
   sum = 5;
-  scrollDistance = 0.1;
-  
+  scrollDistance = 0.02;
+  arrI = 1;
   constructor() {
+    this.appendItems();
+    this.appendItems();
     this.appendItems();
    }
 
@@ -19,15 +24,34 @@ export class IndexComponent implements OnInit {
   }
 
   addItems( _method) {
-    for (let i = 0; i < this.sum; ++i) {
-      this.array[_method]([i, ' ', this.generateWord()].join(''));
-      console.log(this.sum);
-      
+    for (let i = 0; i < 5; ++i) {
+      switch(this.arrI)
+      {
+        case 1:
+        this.array1[_method](this.randomNumber()); 
+        break;
+        case 2:
+        this.array2[_method](this.randomNumber()); 
+        break;
+        case 3:
+        this.array3[_method](this.randomNumber()); 
+        break;
+        default:
+        this.array4[_method](this.randomNumber()); 
+        break;
+      }
+      this.changeArray();
     }
   }
   
   appendItems() {
     this.addItems('push');
+  }
+
+  changeArray(){
+    if(this.arrI!==4)
+      this.arrI++;
+      else this.arrI = 1;
   }
   
 
