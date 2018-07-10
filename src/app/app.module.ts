@@ -12,6 +12,7 @@ import { ContactComponent } from './contact/contact.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { routing } from "./app.routing";
 
@@ -30,7 +31,8 @@ import { routing } from "./app.routing";
     BrowserModule,
     routing,
     InfiniteScrollModule,
-    HttpModule
+    HttpModule,
+    HttpClientModule
   ],
   providers: [IdolsService],
   bootstrap: [AppComponent]
