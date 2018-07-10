@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IdolsService } from "./index.service";
 
 @Component({
   selector: 'app-index',
@@ -11,13 +12,12 @@ export class IndexComponent implements OnInit {
   array2 = [];
   array3 = [];
   array4 = [];
-  sum = 5;
+  page = 1;
   scrollDistance = 0.02;
   arrI = 1;
-  constructor() {
+  constructor(private idolsService : IdolsService) {
     this.appendItems();
-    this.appendItems();
-    this.appendItems();
+    
    }
 
   ngOnInit() {
@@ -25,6 +25,7 @@ export class IndexComponent implements OnInit {
 
   addItems( _method) {
     for (let i = 0; i < 5; ++i) {
+      console.log(this.idolsService.getLatestIdols(this.page));
       switch(this.arrI)
       {
         case 1:
@@ -58,7 +59,7 @@ export class IndexComponent implements OnInit {
   onScrollDown () {
 
     // add another 20 items
-    this.sum += 5;
+    this.page ++;
     this.appendItems();
     
   }

@@ -6,10 +6,12 @@ import { SiteHeaderComponent } from './_layout/site-header/site-header.component
 import { SiteFooterComponent } from './_layout/site-footer/site-footer.component';
 import { SiteLayoutComponent } from './_layout/site-layout/site-layout.component';
 import { IndexComponent } from './index/index.component';
+import { IdolsService } from "../app/index/index.service";
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { HttpModule } from '@angular/http';
 
 import { routing } from "./app.routing";
 
@@ -27,9 +29,10 @@ import { routing } from "./app.routing";
   imports: [
     BrowserModule,
     routing,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [IdolsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
