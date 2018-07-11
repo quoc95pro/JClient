@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IdolsService } from "./index.service";
+import { IdolsService } from "../_services/idol.service";
+import { Idol } from "../_model/idol.model";
 
 @Component({
   selector: 'app-index',
@@ -15,34 +16,38 @@ export class IndexComponent implements OnInit {
   page = 1;
   scrollDistance = 0.02;
   arrI = 1;
+
   constructor(private idolsService : IdolsService) {
     this.appendItems();
-    
    }
 
   ngOnInit() {
   }
 
   addItems( _method) {
-    for (let i = 0; i < 5; ++i) {
-      console.log(this.idolsService.getLatestIdols(this.page));
-      switch(this.arrI)
-      {
-        case 1:
-        this.array1[_method](this.randomNumber()); 
-        break;
-        case 2:
-        this.array2[_method](this.randomNumber()); 
-        break;
-        case 3:
-        this.array3[_method](this.randomNumber()); 
-        break;
-        default:
-        this.array4[_method](this.randomNumber()); 
-        break;
-      }
-      this.changeArray();
-    }
+    this.idolsService.getLatestIdols(this.page)
+        .then(arr => {          
+          for (let i = 0; i < arr.length; ++i) {     
+            switch(this.arrI)
+            {
+              case 1:
+              this.array1[_method](arr[i]); 
+              break;
+              case 2:
+              this.array2[_method](arr[i]); 
+              break;
+              case 3:
+              this.array3[_method](arr[i]); 
+              break;
+              default:
+              this.array4[_method](arr[i]); 
+              break;
+            }
+            this.changeArray();
+          }
+        }
+        );
+    
   }
   
   appendItems() {
@@ -57,8 +62,6 @@ export class IndexComponent implements OnInit {
   
 
   onScrollDown () {
-
-    // add another 20 items
     this.page ++;
     this.appendItems();
     

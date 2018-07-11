@@ -6,7 +6,7 @@ import { SiteHeaderComponent } from './_layout/site-header/site-header.component
 import { SiteFooterComponent } from './_layout/site-footer/site-footer.component';
 import { SiteLayoutComponent } from './_layout/site-layout/site-layout.component';
 import { IndexComponent } from './index/index.component';
-import { IdolsService } from "../app/index/index.service";
+import { IdolsService } from "./_services/idol.service";
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { PricingComponent } from './pricing/pricing.component';
