@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { IdolsService } from "../_services/idol.service";
+import { Idol } from "../_model/idol.model";
 
 @Component({
   selector: 'app-about',
@@ -7,11 +9,21 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
-   name = null;
-  constructor( private route: ActivatedRoute) { }
+   idol = new Idol();
+  constructor( private route: ActivatedRoute, private idolsServices : IdolsService) {
+    
+   }
    
   ngOnInit() {
-    this.name = this.route.snapshot.paramMap.get('name');
+    let id = this.route.snapshot.paramMap.get('id');
+    this.idolsServices.getIdolById(id)
+    .then(res => 
+      {
+        console.log(this.idol);
+        this.idol = res;
+        console.log(this.idol);
+        
+      })
   }
 
 }

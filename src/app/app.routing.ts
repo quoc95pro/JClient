@@ -12,7 +12,7 @@ const appRoutes : Routes = [
         component : SiteLayoutComponent,
         children : [
             {path : '', component : IndexComponent, pathMatch : 'full'},
-            {path : 'info/:name', component : AboutComponent},
+            {path : 'info/:id', component : AboutComponent},
             {path : 'contact', component : ContactComponent},
             {path : 'pricing', component : PricingComponent},
             {path : '**', redirectTo : ''}

@@ -16,6 +16,15 @@ export class IdolsService {
       .then(resJson => resJson);
   }
 
+  getIdolById(id: String) {
+
+    return this.http.get(`${BASE_URL}/api/idolById/${id}`)
+      .toPromise()
+      .then(res => res.json())
+      .then(resJson => resJson);
+  }
+
+
 
 
 }

@@ -4,6 +4,10 @@ export class Idol {
         Waist: number;
         Hips: number
         };
+    avatar :{
+        imageId : String;
+        link : String;
+    };  
     apiFolderId: number;
     dob: Date;
     nationality: string;
@@ -12,4 +16,8 @@ export class Idol {
     _id: number;
     name: string;
     __v: number
+    constructor(){
+        this.name = 'ok';
+        this.avatar.link ='';
+    }
 }

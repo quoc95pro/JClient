@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IdolsService } from "../_services/idol.service";
-import { Idol } from "../_model/idol.model";
+
 
 @Component({
   selector: 'app-index',
