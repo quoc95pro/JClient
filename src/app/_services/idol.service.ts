@@ -24,6 +24,12 @@ export class IdolsService {
       .then(resJson => resJson);
   }
 
+  getFileByFolderId(id: String) {
+    return this.http.get(`${BASE_URL}/api/files/${id}`)
+      .toPromise()
+      .then(res => res.json())
+      .then(resJson => resJson);
+  }
 
 
 

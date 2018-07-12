@@ -10,6 +10,7 @@ import { Idol } from "../_model/idol.model";
 })
 export class AboutComponent implements OnInit {
    idol = new Idol();
+   arr = [];
   constructor( private route: ActivatedRoute, private idolsServices : IdolsService) {
     
    }
@@ -19,10 +20,14 @@ export class AboutComponent implements OnInit {
     this.idolsServices.getIdolById(id)
     .then(res => 
       {
-        console.log(this.idol);
-        this.idol = res;
-        console.log(this.idol);
-        
+        this.idol = res;        
+        this.idolsServices.getFileByFolderId(res.apiFolderId).then(resfile =>{
+            this.arr.push(resfile);
+            resfile.forEach(file => {
+              this.arr.push(file);
+            });
+                      
+        })
       })
   }
 

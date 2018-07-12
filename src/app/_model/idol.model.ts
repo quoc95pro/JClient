@@ -18,6 +18,11 @@ export class Idol {
     __v: number
     constructor(){
         this.name = 'ok';
-        this.avatar.link ='';
+        this.avatar = new avatar
     }
+}
+
+class avatar {
+    imageId : String;
+    link : String;
 }
