@@ -19,18 +19,16 @@
 
                 <!-- Indicators -->
                 <ul class="carousel-indicators">
-                  <li data-target="#demo" data-slide-to="0" class="active"></li>
-                  <li data-target="#demo" data-slide-to="1"></li>
-                  <li data-target="#demo" data-slide-to="2"></li>
+                  <li data-target="#demo" *ngFor="let i of arr" data-slide-to="arr.indexOf(i)" [ngClass]="SlideActive(arr.indexOf(i))"></li>
                 </ul>
 
                 <!-- The slideshow -->
-                <div class="carousel-inner" style="margin-top: 20px" *ngFor="let i of arr">
-                  <div class="carousel-item" *ngif="">
+                <div class="carousel-inner" style="margin-top: 20px">
+                  <div class="carousel-item" *ngFor="let i of arr" [ngClass]="SlideActive(arr.indexOf(i))">
                     <img src="https://www.w3schools.com/bootstrap4/chicago.jpg" style="width : 100%;" alt="Los Angeles">
                     <div class="carousel-caption d-none d-md-block">
                       <span></span>
-                      <p>{{ i.sha1 }}</p>
+                      <p>{{ i.name }}</p>
                     </div>
                   </div>
                   <!-- <div class="carousel-item">

@@ -22,13 +22,17 @@ export class AboutComponent implements OnInit {
       {
         this.idol = res;        
         this.idolsServices.getFileByFolderId(res.apiFolderId).then(resfile =>{
-            this.arr.push(resfile);
             resfile.forEach(file => {
               this.arr.push(file);
             });
+              console.log(this.arr);
                       
         })
       })
   }
 
+   SlideActive(sha1 : number) {
+    if(sha1 === 0)
+    return 'active'; 
+  }
 }
